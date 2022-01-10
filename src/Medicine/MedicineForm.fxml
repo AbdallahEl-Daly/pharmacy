@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="843.0" prefWidth="1199.0" style="-fx-background-color: #DDDDDD;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Medicine.MedicineFormController">
+    <stylesheets>
+        <URL value="@medicineform.css" />
+    </stylesheets>
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="843.0" prefWidth="1199.0" style="-fx-background-color: #70C6C7; -fx-background-radius: 25;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab onSelectionChanged="#refreshStore_Table" text="Store">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-3.0" layoutY="-4.0" pickOnBounds="true" AnchorPane.bottomAnchor="-184.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-720.0" AnchorPane.topAnchor="-4.0">
+                           <image>
+                              <Image url="@../Images/nathaniel-yeo-747NDboAWNY-unsplash.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="Store_Table" layoutX="4.0" layoutY="151.0" prefHeight="646.0" prefWidth="1153.0" style="-fx-background-color: transparent;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="148.0">
+                          <columns>
+                              <TableColumn fx:id="Store_ID" minWidth="100.0" prefWidth="100.0" text="Medicine ID" />
+                            <TableColumn fx:id="Store_Name" minWidth="150.0" prefWidth="150.0" text="Medicine Name" />
+                              <TableColumn fx:id="Store_Quantity" minWidth="50.0" prefWidth="50.0" text="Quantity" />
+                              <TableColumn fx:id="Store_Ribbon" minWidth="100.0" prefWidth="100.0" text="Ribbon" />
+                              <TableColumn fx:id="Store_Ribbon_Price" minWidth="90.0" prefWidth="90.0" text="Ribbon Price" />
+                              <TableColumn fx:id="Store_Price" minWidth="90.0" prefWidth="90.0" text="Price" />
+                            <TableColumn fx:id="Store_ExpiredDate" minWidth="150.0" prefWidth="150.0" text="Expired Date" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="Search_ID" alignment="CENTER" layoutX="10.0" layoutY="117.0" onKeyReleased="#SearchByID" onMouseClicked="#SearchByIDAction" prefHeight="58.0" prefWidth="184.0" promptText="Search By ID" styleClass="searchbtn" stylesheets="@medicineform.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="76.0">
+                           <effect>
+                              <DropShadow color="#047529">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="25.0" />
+                           </font></TextField>
+                        <TextField fx:id="Search_Name" alignment="CENTER" layoutX="291.0" layoutY="117.0" onKeyReleased="#SearchByName" onMouseClicked="#SearchByNameAction" prefHeight="31.0" prefWidth="232.0" promptText="Search By Name" styleClass="searchbtn" stylesheets="@medicineform.css" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="648.0" AnchorPane.topAnchor="76.0">
+                           <effect>
+                              <DropShadow color="#047529" height="5.0" radius="2.0" width="5.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="25.0" />
+                           </font></TextField>
+                        <Label fx:id="MessageLbl1" alignment="CENTER" layoutX="14.0" layoutY="7.0" prefHeight="66.0" prefWidth="1116.0" style="-fx-border-width: 5;" text="Put Your Value to search" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="7.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                           <effect>
+                              <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="0.0" surfaceScale="0.58">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <TextField fx:id="Search_ExpiredMonth" alignment="CENTER" layoutX="942.0" layoutY="84.0" onKeyReleased="#SearchByExpiredMonth" onMouseClicked="#SearchByExcpiredMonthAction" prefHeight="31.0" prefWidth="232.0" promptText="Expired Month" styleClass="searchbtn" stylesheets="@medicineform.css" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="76.0">
+                           <effect>
+                              <DropShadow color="#047529" height="5.0" radius="2.0" width="5.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </TextField>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#refreshMedicine_Table" text="Add">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #70C6C7;">
+                     <children>
+                        <ImageView fx:id="Add_TABLE" fitHeight="1080.0" fitWidth="1920.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" style="-fx-background-size: stretch;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../Images/capsule.pill.health.medicine%20(1).jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="28.0" prefHeight="45.0" prefWidth="242.0" text="Medicine Id :" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="MedicineID" alignment="CENTER" layoutX="266.0" layoutY="36.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="36.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="154.0" prefHeight="45.0" prefWidth="174.0" text="Quantity :" AnchorPane.leftAnchor="76.0" AnchorPane.topAnchor="154.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="MedicineName" alignment="CENTER" layoutX="266.0" layoutY="94.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="94.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="93.0" prefHeight="45.0" prefWidth="244.0" text="Medicine Name :" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="93.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="Quantity" alignment="CENTER" layoutX="266.0" layoutY="155.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="266.0" AnchorPane.topAnchor="155.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="345.0" prefHeight="45.0" prefWidth="239.0" text="Total Price :" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="345.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="Price" alignment="CENTER" layoutX="276.0" layoutY="346.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="346.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="ExpiredDate" layoutX="256.0" layoutY="403.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="408.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                        </DatePicker>
+                        <Label alignment="CENTER_RIGHT" layoutX="46.0" layoutY="403.0" prefHeight="45.0" prefWidth="207.0" text="Expired Date :" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="403.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="MessageLbl" alignment="CENTER" layoutX="14.0" layoutY="616.0" prefHeight="66.0" prefWidth="1116.0" style="-fx-border-color: #000; -fx-border-radius: 25; -fx-border-width: 5;" text="Message!!!" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="41.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="0.9854368932038835" endY="0.0048543689320388345" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="RED" />
+                                    <Stop color="BLACK" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <TableView fx:id="MedicineTableAddForm" layoutX="560.0" layoutY="30.0" onMouseClicked="#TableMouseClick" prefHeight="286.0" prefWidth="633.0" style="-fx-background-color: transparent;" stylesheets="@medicineform.css" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="30.0">
+                          <columns>
+                            <TableColumn fx:id="tableID" minWidth="90.0" prefWidth="90.0" text="Medicine ID" />
+                            <TableColumn fx:id="tableName" maxWidth="560.0" minWidth="115.0" prefWidth="120.0" text="Medicine Name" />
+                              <TableColumn fx:id="tableQuantity" minWidth="55.0" prefWidth="50.0" text="Quantity" />
+                              <TableColumn fx:id="tablePrice" minWidth="50.0" prefWidth="50.0" text="Price" />
+                              <TableColumn fx:id="tableRibbon" minWidth="40.0" prefWidth="75.0" text="Ribbon" />
+                              <TableColumn fx:id="tableRibbonPrice" minWidth="75.0" prefWidth="75.0" text="RibbonPrice" />
+                              <TableColumn fx:id="tableExpiredDate" minWidth="100.0" prefWidth="150.0" text="Expired Date" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <styleClass>
+                              <String fx:value="column-header-background" />
+                              <String fx:value="scroll-bar" />
+                              <String fx:value="column-header" />
+                           </styleClass>
+                        </TableView>
+                        <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="216.0" prefHeight="45.0" prefWidth="245.0" text="Ribbons in Box :">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="RibbonSize" alignment="CENTER" layoutX="266.0" layoutY="217.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="217.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="-3.0" layoutY="283.0" prefHeight="45.0" prefWidth="255.0" text="Ribbon Price :">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="RibbonPrice" alignment="CENTER" layoutX="259.0" layoutY="284.0" prefHeight="44.0" prefWidth="280.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="284.0">
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0">
+                                 <input>
+                                    <Reflection fraction="0.4" />
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="DateOfDB" alignment="CENTER" layoutX="268.0" layoutY="467.0" prefHeight="52.0" prefWidth="285.0" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="467.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Star2" layoutX="548.0" layoutY="276.0" text="*" textFill="RED" AnchorPane.leftAnchor="553.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Star1" layoutX="558.0" layoutY="216.0" text="*" textFill="RED" AnchorPane.leftAnchor="553.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Star3" layoutX="553.0" layoutY="345.0" text="*" textFill="RED" AnchorPane.leftAnchor="553.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <GridPane layoutX="33.0" layoutY="495.0" prefHeight="105.0" prefWidth="1133.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="303.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="372.0" minWidth="10.0" prefWidth="274.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.0" minWidth="10.0" prefWidth="556.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="EditMedicine" mnemonicParsing="false" onAction="#editMedicine" prefHeight="90.0" prefWidth="262.0" style="-fx-background-color: #6A197D; -fx-border-color: #796DCE; -fx-border-width: 5; -fx-background-radius: 25; -fx-border-radius: 25;" text="Edit Medicine" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="77.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8-compose-64%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.2" topOpacity="0.1" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="AddMedicineBtn" mnemonicParsing="false" onAction="#AddMedicineBtn" prefHeight="92.0" prefWidth="262.0" style="-fx-background-color: #6A197D; -fx-border-color: #796DCE; -fx-border-width: 5; -fx-background-radius: 25; -fx-border-radius: 25;" text="Add Medicine" textFill="WHITE" GridPane.columnIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="77.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8-plus-64%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.2" topOpacity="0.1" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <GridPane prefHeight="149.0" prefWidth="448.0" GridPane.columnIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <RadioButton fx:id="AddOperation" mnemonicParsing="false" onAction="#Add_RadioButton" text="Add Operation">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="Operation" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="SearchOperation" mnemonicParsing="false" onAction="#Search_RadioButton" text="Search Operation" toggleGroup="$Operation" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton fx:id="EditOperation" mnemonicParsing="false" onAction="#Edit_RadioButton" text="Edit Operation" toggleGroup="$Operation" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="572.0" layoutY="334.0" prefHeight="141.0" prefWidth="610.0" AnchorPane.topAnchor="334.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="237.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="257.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="65.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="MedicineNameLbl" alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="247.0" text="Medicine Name :">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="MedicineIdLbl" alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="184.0" text="Medicine Id :" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="SearchMedicineName" alignment="CENTER" onMouseClicked="#trancateFields" prefHeight="44.0" prefWidth="205.0" GridPane.columnIndex="1">
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.4" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="SearchMedicineID" alignment="CENTER" onMouseClicked="#trancateFields" prefHeight="44.0" prefWidth="280.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.4" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="idSearchBtn" mnemonicParsing="false" onAction="#SearchMedicineID" prefHeight="63.0" prefWidth="69.0" style="-fx-background-color: #6A197D; -fx-border-color: #796DCE; -fx-border-width: 5; -fx-background-radius: 25; -fx-border-radius: 25;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="42.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8-search-folder-80%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.2" topOpacity="0.1" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="NameSearchBtn" mnemonicParsing="false" onAction="#SearchMedicineName" prefHeight="61.0" prefWidth="68.0" style="-fx-background-color: #6A197D; -fx-border-color: #796DCE; -fx-border-width: 5; -fx-background-radius: 25; -fx-border-radius: 25;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow height="15.0" radius="7.0" width="15.0">
+                                       <input>
+                                          <Reflection fraction="0.2" topOpacity="0.1" />
+                                       </input>
+                                    </DropShadow>
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/icons8-search-folder-64%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
