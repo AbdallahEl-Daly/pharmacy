@@ -1,0 +1,8 @@
+.mainFxmlClass {
+
+}
+.btnStyle{
+    -fx-border-color : #7a0028;
+    -fx-border-width :1.5;
+    -fx-border-radius: 5;
+}

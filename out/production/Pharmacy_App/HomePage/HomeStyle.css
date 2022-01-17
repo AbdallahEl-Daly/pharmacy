@@ -1,0 +1,83 @@
+.mainPane{
+    -fx-background-color: #B1E7E7;
+}
+.deliveryPane{
+	-fx-background-color:   #EE8927;
+	-fx-background-radius:25;
+	-fx-border-color:#000;
+	-fx-border-radius:25;
+}
+.deliverySubPane{
+	-fx-background-color:   #EE8927;
+	-fx-background-radius:25;
+	-fx-border-radius:25;
+}
+
+.table-view{
+   -fx-background-color: transparent;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+/* Spaltenköpfe
+    Struktur column-header-background -> column-header */
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#B41833 20%, #E11F40 80%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight:bold;
+    -fx-text-fill: Black;
+    -fx-alignment: CENTER;
+    -fx-font-size:30px;  
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+    -fx-padding: 2 0 2 10px;
+    -fx-alignment: CENTER;
+    -fx-font-size:30px;  
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #B41833;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #E11F40;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}

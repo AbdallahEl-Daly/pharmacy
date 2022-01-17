@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootpane" prefHeight="356.0" prefWidth="600.0" style="-fx-background-color: #7EB7EF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.LoginFormController">
+   <children>
+      <TextField fx:id="LgnUseridField" alignment="CENTER" layoutX="152.0" layoutY="99.0" prefHeight="39.0" prefWidth="180.0" style="-fx-border-color: #007BFF; -fx-border-width: 1.5; -fx-border-radius: 5;" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="99.0">
+         <effect>
+            <Reflection fraction="0.4" topOpacity="0.16" />
+         </effect>
+      </TextField>
+      <PasswordField fx:id="LgnPasswordField" alignment="CENTER" layoutX="149.0" layoutY="159.0" prefHeight="39.0" prefWidth="187.0" style="-fx-border-color: #007BFF; -fx-border-width: 1.5; -fx-border-radius: 5;" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="240.0">
+         <effect>
+            <Reflection fraction="0.4" topOpacity="0.16" />
+         </effect>
+      </PasswordField>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="99.0" prefHeight="39.0" prefWidth="116.0" text="User ID :" textAlignment="CENTER" textFill="#1d4d9f" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="99.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="162.0" prefHeight="31.0" prefWidth="111.0" text="Password :" textFill="#1d4d9f" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="162.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="187.0" fitWidth="187.0" layoutX="391.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="25.0">
+         <image>
+            <Image url="@../Images/login.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="87.0" layoutY="286.0" mnemonicParsing="false" onAction="#LoginBtn" style="-fx-background-color: #FCB947; -fx-background-radius: 50;" text="L O G I N" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="407.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5625" centerY="0.5485436893203883" cycleMethod="REFLECT" focusAngle="63.43" focusDistance="-0.29268292682926833" radius="0.04878048780487804">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <DropShadow color="#3c3a3a" height="24.11" radius="10.7775" spread="0.1">
+               <input>
+                  <Lighting diffuseConstant="1.54" light="$null" specularConstant="0.15" specularExponent="40.0" surfaceScale="2.24">
+                     <bumpInput>
+                        <Shadow color="WHITE" />
+                     </bumpInput>
+                  </Lighting>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+       <Button layoutX="87.0" layoutY="286.0" mnemonicParsing="false" onAction="#ExitBTN" style="-fx-background-color: #FCB947; -fx-background-radius: 50;" text="E X I T" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5625" centerY="0.5485436893203883" cycleMethod="REFLECT" focusAngle="63.43" focusDistance="-0.29268292682926833" radius="0.04878048780487804">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <DropShadow color="#3c3a3a" height="24.11" radius="10.7775" spread="0.1">
+               <input>
+                  <Lighting diffuseConstant="1.54" light="$null" specularConstant="0.15" specularExponent="40.0" surfaceScale="2.24">
+                     <bumpInput>
+                        <Shadow color="WHITE" />
+                     </bumpInput>
+                  </Lighting>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="213.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnFunctionOnClick" style="-fx-background-color: #FCB947; -fx-background-radius: 50;" text="N E W  U S E R" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5625" centerY="0.5485436893203883" cycleMethod="REFLECT" focusAngle="63.43" focusDistance="-0.29268292682926833" radius="0.04878048780487804">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <DropShadow color="#3c3a3a" height="24.11" radius="10.7775" spread="0.1">
+               <input>
+                  <Lighting diffuseConstant="1.54" light="$null" specularConstant="0.15" specularExponent="40.0" surfaceScale="2.24">
+                     <bumpInput>
+                        <Shadow color="WHITE" />
+                     </bumpInput>
+                  </Lighting>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label alignment="CENTER" layoutY="4.0" prefHeight="34.0" prefWidth="600.0" text="L O G I N" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5625" centerY="0.5485436893203883" cycleMethod="REFLECT" focusAngle="63.43" focusDistance="-0.29268292682926833" radius="0.04878048780487804">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="MessageLbl" alignment="CENTER" layoutY="307.0" prefHeight="34.0" prefWidth="600.0" text="Message!!!" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient cycleMethod="REFLECT" endX="0.5922330097087378" endY="1.0" startX="0.5922330097087378">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

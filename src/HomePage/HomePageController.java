@@ -59,10 +59,10 @@ public class HomePageController implements Initializable {
     private TableColumn<Medicine, Double> Prod_Quantity;
 
     private Date nowDate,date;
-    
-    private SimpleDateFormat formated = new SimpleDateFormat("hh:mm:ss aa");
-    private SimpleDateFormat dateformated = new SimpleDateFormat("yyyy-MM-dd");
-    private SimpleDateFormat weekFormated = new SimpleDateFormat("EEEE");
+
+    private final SimpleDateFormat formated = new SimpleDateFormat("hh:mm:ss aa");
+    private final SimpleDateFormat dateformated = new SimpleDateFormat("yyyy-MM-dd");
+    private final SimpleDateFormat weekFormated = new SimpleDateFormat("EEEE");
     private String nowTime;
 
     private Thread clock, Orders;

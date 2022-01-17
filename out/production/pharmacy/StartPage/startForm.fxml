@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1258.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartPage.StartFormController">
+    <stylesheets>
+        <URL value="@startform.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/pexels-elijah-o'donnell-3473569.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="20.0" text="Seller Name :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label fx:id="SellerNameLbl" layoutX="185.0" layoutY="20.0" prefHeight="38.0" prefWidth="355.0" text="Mohamed Osama Mohamed" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <TableView fx:id="MedicineTable" layoutX="14.0" layoutY="132.0" prefHeight="287.0" prefWidth="563.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(to bottom, lightblue, green);" AnchorPane.topAnchor="150.0">
+        <columns>
+          <TableColumn fx:id="Med_ProdID" prefWidth="75.0" text="Prd. ID" />
+          <TableColumn fx:id="Med_ProdName" prefWidth="75.0" text="Prod. Name" />
+            <TableColumn fx:id="Med_Quantity" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="Med_BoxPrice" prefWidth="75.0" text="Box Price" />
+            <TableColumn fx:id="Med_RibPrice" prefWidth="75.0" text="Rib. Price" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="SearchField" alignment="CENTER" layoutX="40.0" layoutY="81.0" onKeyReleased="#SearchByValue" prefHeight="51.0" prefWidth="506.0" promptText="Search Value" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#305e30" />
+         </effect>
+      </TextField>
+      <TableView fx:id="OrdersTable" layoutX="502.0" layoutY="448.0" onMouseClicked="#TableMouseClick" prefHeight="386.0" prefWidth="742.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(to bottom, lightblue, green);" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="502.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="448.0">
+         <columns>
+            <TableColumn fx:id="Orders_ProdID" prefWidth="75.0" text="Prd. ID" />
+            <TableColumn fx:id="Orders_ProdName" prefWidth="75.0" text="Prod. Name" />
+            <TableColumn fx:id="Orders_Quantity" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="Orders_Price" prefWidth="75.0" text="Price" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label fx:id="MessageLbl" alignment="CENTER" layoutX="34.0" layoutY="819.0" prefHeight="57.0" prefWidth="1190.0" style="-fx-border-color: #81C483; -fx-border-radius: 25; -fx-border-width: 3;" text="Message!!!" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0">
+         <font>
+            <Font size="42.0" />
+         </font>
+         <effect>
+            <DropShadow color="#81c483" />
+         </effect>
+         <textFill>
+            <LinearGradient endX="0.9368932038834952" endY="0.6844660194174756" startX="1.0" startY="0.33980582524271846">
+               <stops>
+                  <Stop color="#13902c" />
+                  <Stop color="#e6ed61" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="CustomerNameLbl" layoutX="593.0" layoutY="284.0" text="Customer Name :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label fx:id="CustomerCodeLbl" layoutX="586.0" layoutY="218.0" text="Customer Code :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="595.0" layoutY="98.0" text="Quantity :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="598.0" layoutY="81.0" text="Medicine Name :" textFill="WHITE" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0">
+               <color>
+                  <Color red="0.0625" green="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <RadioButton fx:id="BoxesRB" layoutX="955.0" layoutY="102.0" mnemonicParsing="false" selected="true" text="Boxes" textFill="WHITE" AnchorPane.rightAnchor="206.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="QuantityGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="RibbonsRB" layoutX="1104.0" layoutY="101.0" mnemonicParsing="false" text="Ribbons" textFill="WHITE" toggleGroup="$QuantityGroup" AnchorPane.rightAnchor="34.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="Med_NameField" alignment="CENTER" editable="false" layoutX="821.0" layoutY="72.0" prefHeight="57.0" prefWidth="404.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#305e30" />
+         </effect>
+      </TextField>
+      <TextField fx:id="Med_QuantityField" alignment="CENTER" layoutX="726.0" layoutY="89.0" onKeyReleased="#QuantityFieldKeyReleased" prefHeight="57.0" prefWidth="192.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" AnchorPane.leftAnchor="726.0" AnchorPane.rightAnchor="340.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#305e30" />
+         </effect>
+      </TextField>
+      <TextField fx:id="CustomerCodeField" alignment="CENTER" layoutX="809.0" layoutY="209.0" onKeyReleased="#CustomerCodeKeyReleased" prefHeight="57.0" prefWidth="404.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" AnchorPane.leftAnchor="809.0" AnchorPane.rightAnchor="45.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#305e30" />
+         </effect>
+      </TextField>
+      <TextField fx:id="CustomerNameField" alignment="CENTER" editable="false" layoutX="809.0" layoutY="275.0" prefHeight="57.0" prefWidth="404.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" AnchorPane.leftAnchor="809.0" AnchorPane.rightAnchor="45.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#305e30" />
+         </effect>
+      </TextField>
+      <CheckBox fx:id="UnkownCustomerCheckBox" layoutX="586.0" layoutY="164.0" mnemonicParsing="false" onAction="#CheckCustmerBox" prefHeight="35.0" prefWidth="260.0" text="Unknown Customer" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </CheckBox>
+      <GridPane layoutX="570.0" layoutY="332.0" prefHeight="95.0" prefWidth="661.0" AnchorPane.leftAnchor="570.0" AnchorPane.rightAnchor="27.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#DeleteOrderFromTable" prefHeight="68.0" prefWidth="163.0" style="-fx-background-color: linear-gradient(to bottom, green, yellow); -fx-background-radius: 20;" text="Delete" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/recycle%20bin%2040.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#00d4ff" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#sellOrder" style="-fx-background-color: linear-gradient(to bottom, darkblue, cyan); -fx-background-radius: 20;" text="Sell" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-get-cash-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#AddOrderButton" prefHeight="57.0" prefWidth="136.0" style="-fx-background-color: linear-gradient(to bottom, lightgreen, white); -fx-background-radius: 20;" text="Add" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-plus-52.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </GridPane>
+      <RadioButton fx:id="InPharmacy" layoutX="887.0" layoutY="164.0" mnemonicParsing="false" selected="true" text="In Pharmacy" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Statues" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Delivery" layoutX="1086.0" layoutY="164.0" mnemonicParsing="false" text="Delivery" textFill="WHITE" toggleGroup="$Statues">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </RadioButton>
+      <GridPane hgap="10.0" layoutX="14.0" layoutY="445.0" prefHeight="361.0" prefWidth="478.0" vgap="35.0" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="445.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="193.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="285.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="177.0" text="Total Cost :" textFill="WHITE" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.0625" green="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <TextField fx:id="TotalCostField" alignment="CENTER" editable="false" prefHeight="57.0" prefWidth="260.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" GridPane.columnIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#305e30" />
+               </effect>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="177.0" text="Payment :" textFill="WHITE" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.0625" green="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <TextField fx:id="PaymentField" alignment="CENTER" onKeyReleased="#PaymentKeyReleased" prefHeight="57.0" prefWidth="260.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#305e30" />
+               </effect>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="177.0" text="Remaining :" textFill="WHITE" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.0625" green="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <TextField fx:id="RemainingField" alignment="CENTER" prefHeight="48.0" prefWidth="220.0" style="-fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944); -fx-background-radius: 25; -fx-text-fill: white; -fx-border-width: 3; -fx-border-color: #81C483; -fx-border-radius: 25;" stylesheets="@startform.css" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#305e30" />
+               </effect>
+            </TextField>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
