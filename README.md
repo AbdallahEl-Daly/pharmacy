@@ -1,2 +1,2 @@
 # pharmacy
-# collage project
+# University Graduation Project
